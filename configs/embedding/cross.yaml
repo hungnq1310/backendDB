@@ -1,10 +1,10 @@
-qry_model_name: null
-psg_model_name: null
-token: null
+qry_model_name: pythera/mbert-retrieve-qry-base
+psg_model_name: pythera/mbert-retrieve-ctx-base
+token: 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
 proxies: null
 methods: huggingface
-device: [0]
-embedding_batch_size: 10
+device: 0
+embedding_batch_size: 64
 pooling: cls
 max_length: 512
 normalize: True

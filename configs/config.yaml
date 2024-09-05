@@ -8,11 +8,11 @@ show_progress: False
 
 vector_store_query_mode: default
 store_nodes_override: False
-insert_batch_size: 128
-similarity_top_k: 2
+insert_batch_size: 4096
+similarity_top_k: 10
 
 defaults:
   - embedding: cross
   - splitter: sentence
   - vector_store: milvus
-  - rerank: cohere
+  - rerank: asymmetric

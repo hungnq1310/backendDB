@@ -1,24 +1,24 @@
 vectorstore_name: milvus
-embedding_dim: 384
+embedding_dim: 768
 host: localhost
 port: 19530
 address: null
 uri: null
 user: null
-collection_name: MilvusCollection
+collection_name: law_dataset
 embedding_field: embedding
 primary_field: doc_id
 text_field: null
 consistency_level: null
 overwrite: True
 search_params: 
-  metric_type: COSINE
+  metric_type: IP
   offset: 0
   ignore_growing: False
   params: 
     nprobe: 10 
 index_params: 
-  metric_type: COSINE
+  metric_type: IP
   index_type: IVF_FLAT
   params:
     nlist: 1024
