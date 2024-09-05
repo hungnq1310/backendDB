@@ -12,7 +12,7 @@ class CsvReader(BaseReader):
         list_text = []
         # load_data returns a list of Document objects
         with open(file) as csv_file:
-            data_lines = csv.reader(csv_file, delimiter=',', quoting=csv.QUOTE_NONE)
+            data_lines = csv.reader(csv_file, delimiter=',')
             for idx, line in enumerate(data_lines):
                 if idx == 0:
                     continue

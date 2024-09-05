@@ -93,7 +93,6 @@ class MilvusRetrieverPipeline:
         
         #TODO: query
         nodes, rerank_nodes = engine.search(QueryBundle(query))
-        print(nodes)
 
         end_build_retrieve_search = int(round(time.time() * 1000))
         print(f"Time for build retriever and search: {end_build_retrieve_search - start_build_retrieve_search} ms")
