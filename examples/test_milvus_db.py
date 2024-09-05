@@ -5,23 +5,27 @@ from hydra import compose, initialize_config_dir
 
 from src.pipeline.data_ingestion import InitializeDatabase
 from src.configs.configuration import ConfigurationManager
+from src.node.base_node import MetadataMode
 
 from src.reader.dir_reader import DirectoryReader
 import glob
 
 startTime_load = int(round(time.time() * 1000))
 
-docs_files_path = glob.glob(os.path.abspath(os.curdir) + "/data/*.docx")
-print("pdf_files: ", docs_files_path)
+file_dir = os.path.abspath(os.curdir) + "/data/law_dataset/legal_docs_cleaned_v2"
 reader = DirectoryReader(
-    input_files=docs_files_path
+    input_dir=file_dir,
+    recursive=True,
+    num_files_limit=10,
 )
-print("reader: ", reader.__dict__)
+
 docs_files = reader.load_data()
 if docs_files:
     print("Load pdf success")
-
-# ------------------
+    print(docs_files[0])
+    # print(docs_files[10].get_content(metadata_mode=MetadataMode.ALL))
+    # print(docs_files[20].get_content(metadata_mode=MetadataMode.ALL))
+    # print(docs_files[30].get_content(metadata_mode=MetadataMode.ALL))
 
 # using hydra to load config
 initialize_config_dir(version_base=None, config_dir=os.path.abspath(os.curdir) +  "/configs/")
